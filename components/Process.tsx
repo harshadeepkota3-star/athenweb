@@ -84,11 +84,11 @@ const Process: React.FC = () => {
             // Phase 2: Card Merging
             cards.forEach((card, i) => {
                 const rect = card.getBoundingClientRect();
-                const sectionRect = section.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
 
-                // Calculate target position (60% down the section) relative to card's current position
-                const targetX = (sectionRect.width / 2) - (rect.left - sectionRect.left + rect.width / 2);
-                const targetY = (sectionRect.height * 0.6) - (rect.top - sectionRect.top + rect.height / 2);
+                // Calculate target position (center of the cards container)
+                const targetX = (containerRect.width / 2) - (rect.left - containerRect.left + rect.width / 2);
+                const targetY = (containerRect.height / 2) - (rect.top - containerRect.top + rect.height / 2);
 
                 // Move cards to target
                 tl.to(card, {
@@ -182,73 +182,77 @@ const Process: React.FC = () => {
                     <p className="text-white/30 text-[10px] md:text-xs font-medium tracking-[0.4em] uppercase">Systematic Evolution from Concept to Deployment</p>
                 </div>
 
-                {/* Cards Container */}
-                <div
-                    ref={containerRef}
-                    className="relative w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 will-change-transform"
-                >
-                    {PROCESS_STEPS.map((step, idx) => (
-                        <div
-                            key={idx}
-                            ref={el => cardsRef.current[idx] = el}
-                            className="
-                                glass-card group relative p-6 lg:p-8 h-[280px] lg:h-[340px] rounded-2xl border border-white/5 
-                                bg-[#0a0a0a]/80 backdrop-blur-2xl flex flex-col overflow-hidden
-                                shadow-[0_20px_40px_rgba(0,0,0,0.6)] transition-colors duration-500
-                                hover:border-[#00f5d4]/20
-                            "
-                        >
-                            {/* Inner Glow */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                {/* Cards & Logo Section */}
+                <div className="relative w-full">
+                    {/* Cards Container */}
+                    <div
+                        ref={containerRef}
+                        className="relative w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 will-change-transform"
+                    >
+                        {PROCESS_STEPS.map((step, idx) => (
+                            <div
+                                key={idx}
+                                ref={el => cardsRef.current[idx] = el}
+                                className="
+                                    glass-card group relative p-6 lg:p-8 h-[280px] lg:h-[340px] rounded-2xl border border-white/5 
+                                    bg-[#0a0a0a]/80 backdrop-blur-2xl flex flex-col overflow-hidden
+                                    shadow-[0_20px_40px_rgba(0,0,0,0.6)] transition-colors duration-500
+                                    hover:border-[#00f5d4]/20
+                                "
+                            >
+                                {/* Inner Glow */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-                            <div className="relative z-10 flex flex-col h-full">
-                                <div className="flex items-center justify-between mb-4 lg:mb-6">
-                                    <span className="text-[#00f5d4] font-mono text-lg font-black">{step.number}</span>
-                                    <div className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#00f5d4]/40 transition-colors">
-                                        <div className="w-1 h-1 bg-white/20 group-hover:bg-[#00f5d4] rounded-full"></div>
+                                <div className="relative z-10 flex flex-col h-full">
+                                    <div className="flex items-center justify-between mb-4 lg:mb-6">
+                                        <span className="text-[#00f5d4] font-mono text-lg font-black">{step.number}</span>
+                                        <div className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#00f5d4]/40 transition-colors">
+                                            <div className="w-1 h-1 bg-white/20 group-hover:bg-[#00f5d4] rounded-full"></div>
+                                        </div>
+                                    </div>
+
+                                    <h3 className="text-2xl font-black text-white mb-4 uppercase tracking-tight leading-tight group-hover:text-[#00f5d4] transition-colors duration-300">
+                                        {step.title}
+                                    </h3>
+
+                                    <p className="text-white/40 text-xs lg:text-sm leading-relaxed font-medium group-hover:text-white/60 transition-colors duration-300 line-clamp-4">
+                                        {step.description}
+                                    </p>
+
+                                    <div className="mt-auto pt-6 flex items-center justify-between">
+                                        <div className="h-px flex-grow bg-white/5 group-hover:bg-[#00f5d4]/20 transition-colors"></div>
+                                        <span className="ml-4 text-[8px] font-black text-white/5 tracking-[0.3em] uppercase">P_SYS_{idx + 1}</span>
                                     </div>
                                 </div>
-
-                                <h3 className="text-2xl font-black text-white mb-4 uppercase tracking-tight leading-tight group-hover:text-[#00f5d4] transition-colors duration-300">
-                                    {step.title}
-                                </h3>
-
-                                <p className="text-white/40 text-xs lg:text-sm leading-relaxed font-medium group-hover:text-white/60 transition-colors duration-300 line-clamp-4">
-                                    {step.description}
-                                </p>
-
-                                <div className="mt-auto pt-6 flex items-center justify-between">
-                                    <div className="h-px flex-grow bg-white/5 group-hover:bg-[#00f5d4]/20 transition-colors"></div>
-                                    <span className="ml-4 text-[8px] font-black text-white/5 tracking-[0.3em] uppercase">P_SYS_{idx + 1}</span>
-                                </div>
                             </div>
+                        ))}
+                    </div>
+
+                    {/* Unified Logo Card - Now shared in the same container space */}
+                    <div
+                        ref={logoCardRef}
+                        className="
+                            absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                            flex flex-col items-center justify-center
+                            p-8 lg:p-12 h-full w-full max-w-[400px] lg:max-w-[600px]
+                            rounded-2xl border border-[#00f5d4]/40 bg-[#0a0a0a] backdrop-blur-3xl
+                            shadow-[0_0_50px_rgba(0,245,212,0.1)]
+                            pointer-events-none z-50
+                        "
+                    >
+                        <div className="athen-logo relative mb-8">
+                            <div className="absolute inset-0 bg-[#00f5d4]/20 blur-3xl rounded-full"></div>
+                            <AthenWebLogo className="w-24 h-24 relative z-10" />
                         </div>
-                    ))}
 
-                </div>
-            </div>
-
-            {/* Unified Logo Card - Absolutely Positioned over the Section */}
-            <div
-                ref={logoCardRef}
-                className="
-                    absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2
-                    flex flex-col items-center justify-center
-                    p-10 h-[280px] lg:h-[340px] w-full max-w-[380px] lg:max-w-[480px]
-                    rounded-3xl border border-[#00f5d4]/30 bg-[#0a0a0a] backdrop-blur-3xl
-                    pointer-events-none z-50
-                "
-            >
-                <div className="athen-logo relative mb-6">
-                    <AthenWebLogo className="w-20 h-20 relative z-10" />
-                </div>
-
-                <div className="logo-text flex flex-col items-center text-center">
-                    <h3 className="text-white text-3xl lg:text-4xl font-black tracking-[0.3em] uppercase leading-none">
-                        ATHEN<span className="text-[#00f5d4]">WEB</span>
-                    </h3>
-                    <div className="logo-line mt-6 w-24 h-1 bg-[#00f5d4] rounded-full opacity-60"></div>
-                    <p className="mt-4 text-[9px] font-bold text-[#00f5d4] tracking-[0.6em] uppercase opacity-40">Ready to Evolve</p>
+                        <div className="logo-text flex flex-col items-center text-center">
+                            <h3 className="text-white text-4xl lg:text-6xl font-black tracking-[0.2em] uppercase leading-none">
+                                ATHEN<span className="text-[#00f5d4]">WEB</span>
+                            </h3>
+                            <div className="logo-line mt-8 w-32 h-1.5 bg-[#00f5d4] rounded-full opacity-60"></div>
+                            <p className="mt-6 text-[10px] font-black text-[#00f5d4] tracking-[0.8em] uppercase opacity-50">Ready to Evolve</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
