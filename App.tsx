@@ -10,6 +10,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AIAssistant from './components/AIAssistant';
 
+import Process from './components/Process';
+
 export type Page = 'home' | 'about' | 'services' | 'portfolio' | 'contact';
 
 const App: React.FC = () => {
@@ -27,7 +29,7 @@ const App: React.FC = () => {
           <>
             <Hero onNavigate={setCurrentPage} />
             <Marquee />
-            <Services />
+            <Process />
             <About compact />
             <Portfolio compact />
           </>
@@ -35,7 +37,8 @@ const App: React.FC = () => {
       case 'about':
         return <About />;
       case 'services':
-        return <Services showAll />;
+        return <Process />; // Maybe the services page should also show this? Or keep old Services?
+
       case 'portfolio':
         return <Portfolio />;
       case 'contact':
@@ -48,14 +51,14 @@ const App: React.FC = () => {
   return (
     <div className="relative min-h-screen selection:bg-[#00ead3] selection:text-black bg-[#050505]">
       <Navbar currentPage={currentPage} onNavigate={setCurrentPage} />
-      
+
       <main className="pt-20">
         {renderPage()}
       </main>
 
       <Footer onNavigate={setCurrentPage} />
 
-      <button 
+      <button
         onClick={() => setIsAiOpen(true)}
         className="fixed bottom-8 right-8 z-50 bg-[#00ead3] text-black p-4 rounded-full shadow-2xl hover:scale-110 transition-transform active:scale-95 group"
       >
