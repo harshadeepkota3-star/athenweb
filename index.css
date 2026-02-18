@@ -1,0 +1,407 @@
+/* ============================================
+   3D STACKED CARD CAROUSEL — PORTFOLIO
+   ============================================ */
+
+/* --- Perspective Container --- */
+.portfolio-carousel {
+    perspective: 1800px;
+    perspective-origin: 50% 50%;
+    position: relative;
+    width: 100%;
+    flex: 1;
+    min-width: 0;
+    height: 620px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+@media (max-width: 768px) {
+    .portfolio-carousel {
+        height: 480px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-carousel {
+        height: 400px;
+    }
+}
+
+/* --- Card Base --- */
+.portfolio-card {
+    position: absolute;
+    width: 420px;
+    height: 540px;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform, opacity, filter;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+@media (max-width: 768px) {
+    .portfolio-card {
+        width: 300px;
+        height: 420px;
+        border-radius: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-card {
+        width: 260px;
+        height: 360px;
+        border-radius: 12px;
+    }
+}
+
+/* --- Glassmorphism Card Inner --- */
+.portfolio-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+    background: rgba(18, 18, 18, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* --- Card Image --- */
+.portfolio-card-img {
+    width: 100%;
+    height: 65%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.portfolio-card:hover .portfolio-card-img {
+    transform: scale(1.06);
+}
+
+/* --- Card Content Overlay --- */
+.portfolio-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 24px;
+    background: linear-gradient(to top,
+            rgba(5, 5, 5, 0.95) 0%,
+            rgba(5, 5, 5, 0.7) 60%,
+            transparent 100%);
+    z-index: 2;
+}
+
+@media (max-width: 480px) {
+    .portfolio-card-content {
+        padding: 20px 16px;
+    }
+}
+
+.portfolio-card-category {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #00ead3;
+    margin-bottom: 6px;
+    transition: opacity 0.6s ease;
+}
+
+.portfolio-card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    transition: opacity 0.6s ease;
+}
+
+@media (max-width: 480px) {
+    .portfolio-card-title {
+        font-size: 1.4rem;
+    }
+}
+
+.portfolio-card-description {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.55;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Show description only on active card */
+.portfolio-card[data-active="true"] .portfolio-card-description {
+    max-height: 100px;
+    opacity: 1;
+}
+
+/* --- Card Glow Border (Active) --- */
+.portfolio-card-glow {
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg,
+            rgba(0, 234, 211, 0.4) 0%,
+            rgba(0, 234, 211, 0.05) 40%,
+            transparent 60%,
+            rgba(0, 234, 211, 0.15) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.portfolio-card[data-active="true"] .portfolio-card-glow {
+    opacity: 0;
+}
+
+/* --- Card Shadow (Active) --- */
+.portfolio-card[data-active="true"] {
+    box-shadow: none;
+}
+
+/* --- Floating subtle animation for active card --- */
+@keyframes cardFloat {
+
+    0%,
+    100% {
+        transform: var(--card-transform) translateY(0px);
+    }
+
+    50% {
+        transform: var(--card-transform) translateY(-8px);
+    }
+}
+
+.portfolio-card[data-active="true"] {
+    animation: cardFloat 4s ease-in-out infinite;
+}
+
+/* --- Navigation Buttons --- */
+.carousel-nav-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 234, 211, 0.25);
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #00ead3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 10;
+    outline: none;
+}
+
+.carousel-nav-btn:hover {
+    background: #00ead3;
+    color: #050505;
+    border-color: #00ead3;
+    transform: scale(1.12);
+    box-shadow: none;
+}
+
+.carousel-nav-btn:active {
+    transform: scale(0.95);
+}
+
+.carousel-nav-btn:focus-visible {
+    outline: 2px solid #00ead3;
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .carousel-nav-btn {
+        width: 46px;
+        height: 46px;
+    }
+}
+
+/* --- Carousel Wrapper — side nav layout --- */
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    width: 100%;
+}
+
+@media (max-width: 640px) {
+    .carousel-wrapper {
+        gap: 8px;
+    }
+}
+
+/* Side nav buttons positioning */
+.carousel-nav-left,
+.carousel-nav-right {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 20;
+}
+
+@media (max-width: 480px) {
+
+    .carousel-nav-left,
+    .carousel-nav-right {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* --- Progress Dots --- */
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    outline: none;
+    padding: 0;
+}
+
+.carousel-dot:hover {
+    background: rgba(0, 234, 211, 0.5);
+    transform: scale(1.3);
+}
+
+.carousel-dot[data-active="true"] {
+    width: 32px;
+    border-radius: 10px;
+    background: #00ead3;
+    box-shadow: none;
+}
+
+.carousel-dot:focus-visible {
+    outline: 2px solid #00ead3;
+    outline-offset: 3px;
+}
+
+/* --- Counter --- */
+.carousel-counter {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    letter-spacing: -0.06em;
+    line-height: 1;
+    position: absolute;
+    top: -20px;
+    right: 0px;
+    user-select: none;
+    pointer-events: none;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (max-width: 768px) {
+    .carousel-counter {
+        font-size: 3rem;
+        top: -10px;
+        right: 10px;
+    }
+}
+
+/* --- Tech Tags --- */
+.tech-tag {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 5px 12px;
+    border-radius: 6px;
+    background: rgba(0, 234, 211, 0.08);
+    color: rgba(0, 234, 211, 0.7);
+    border: 1px solid rgba(0, 234, 211, 0.1);
+    display: inline-block;
+    transition: all 0.4s ease;
+}
+
+.portfolio-card[data-active="true"] .tech-tag {
+    background: rgba(0, 234, 211, 0.12);
+    color: #00ead3;
+    border-color: rgba(0, 234, 211, 0.2);
+}
+
+/* --- Background decoration for section --- */
+.portfolio-bg-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 234, 211, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    filter: blur(80px);
+    z-index: 0;
+}
+
+/* --- Touch/swipe area --- */
+.carousel-touch-area {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    touch-action: pan-y;
+}
+
+/* Disable touch area on desktop to allow card clicks */
+@media (hover: hover) and (pointer: fine) {
+    .carousel-touch-area {
+        display: none;
+    }
+}
+
+/* ============================================
+   SERVICES SECTION — Subtle Green Grid BG
+   ============================================ */
+.services-grid-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.services-grid-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 234, 211, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 234, 211, 0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Subtle radial glow at center for depth */
+.services-grid-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%,
+            rgba(0, 234, 211, 0.05) 0%,
+            transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}

@@ -1,0 +1,6 @@
+
+{
+  "name": "AthenWeb",
+  "description": "Driving Evolution through high-performance software engineering and avant-garde digital design.",
+  "requestFramePermissions": ["camera", "microphone"]
+}
