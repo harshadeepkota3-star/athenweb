@@ -220,7 +220,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
             className="hidden md:flex bg-[#00ead3] text-black px-6 md:px-8 py-2 md:py-3 rounded-full text-[11px] md:text-[13px] font-extrabold hover:bg-white transition-colors items-center gap-2 group border border-transparent shadow-2xl"
             style={{ willChange: 'transform, opacity, box-shadow' }}
           >
-            <span>GET STARTED</span>
+            <span>START EVOLVING</span>
             <svg className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
@@ -312,7 +312,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
                 onClick={() => handleNavigate('contact')}
                 className="w-full bg-[#00ead3] text-black py-5 rounded-xl text-lg font-black tracking-widest flex items-center justify-center gap-3 shadow-[0_20px_40px_rgba(0,234,211,0.2)]"
               >
-                <span>GET STARTED</span>
+                <span>START EVOLVING</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>

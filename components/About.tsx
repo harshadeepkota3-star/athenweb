@@ -1,14 +1,17 @@
 
 import React from 'react';
 
+import AboutRainEffect from './AboutRainEffect';
+
 interface AboutProps {
   compact?: boolean;
 }
 
 const About: React.FC<AboutProps> = ({ compact }) => {
   return (
-    <section className={`py-24 px-6 md:px-12 text-white overflow-hidden ${compact ? 'bg-[#0a0a0a]' : 'bg-black'}`}>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <section className={`relative py-24 px-6 md:px-12 text-white overflow-hidden ${compact ? 'bg-[#0a0a0a]' : 'bg-black'}`}>
+      {!compact && <AboutRainEffect />}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
         <div className="relative">
           <div className="flex items-center gap-3 mb-6">

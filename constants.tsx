@@ -3,14 +3,11 @@ import React from 'react';
 import { Service, PortfolioItem, Stat } from './types';
 
 export const AthenWebLogo = ({ className = "w-8 h-8" }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M50 5L89.5 27.5V72.5L50 95L10.5 72.5V27.5L50 5Z" stroke="#00ead3" strokeWidth="4" strokeLinecap="round" />
-    <path d="M30 35L70 35" stroke="#00ead3" strokeWidth="2" strokeLinecap="round" />
-    <path d="M30 45L70 45" stroke="#00ead3" strokeWidth="2" strokeLinecap="round" />
-    <path d="M30 55L70 55" stroke="#00ead3" strokeWidth="2" strokeLinecap="round" />
-    <path d="M30 65L70 65" stroke="#00ead3" strokeWidth="2" strokeLinecap="round" />
-    <circle cx="50" cy="50" r="10" fill="black" stroke="#00ead3" strokeWidth="2" />
-  </svg>
+  <img
+    src="/logo.png"
+    alt="AthenWeb Logo"
+    className={`${className} object-contain`}
+  />
 );
 
 export const SERVICES: Service[] = [
