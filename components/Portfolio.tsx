@@ -197,7 +197,9 @@ const Portfolio: React.FC<PortfolioProps> = ({ compact }) => {
                   data-active={isActive}
                   style={getCardStyle(index)}
                   onClick={() => {
-                    if (!isActive && !isAnimating) {
+                    if (isActive && item.url) {
+                      window.open(item.url, '_blank', 'noopener,noreferrer');
+                    } else if (!isActive && !isAnimating) {
                       setIsAnimating(true);
                       setActiveIndex(index);
                       setTimeout(() => setIsAnimating(false), 800);

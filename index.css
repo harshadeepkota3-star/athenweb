@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 /* ============================================
    3D STACKED CARD CAROUSEL — PORTFOLIO
@@ -34,19 +34,7 @@
 }
 
 /* --- Card Base --- */
-.portfolio-card {
-    position: absolute;
-    width: 420px;
-    height: 540px;
-    border-radius: 18px;
-    overflow: hidden;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    will-change: transform, opacity, filter;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-}
+/* (Defined below with active state logic) */
 
 @media (max-width: 768px) {
     .portfolio-card {
@@ -196,8 +184,25 @@
     }
 }
 
+.portfolio-card {
+    position: absolute;
+    width: 420px;
+    height: 540px;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    /* Default cursor for switching cards */
+    transform-style: preserve-3d;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform, opacity, filter;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
 .portfolio-card[data-active="true"] {
     animation: cardFloat 4s ease-in-out infinite;
+    cursor: alias;
+    /* Visual indicator that it opens an external link */
 }
 
 /* --- Navigation Buttons --- */

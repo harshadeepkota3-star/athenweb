@@ -36,22 +36,30 @@ const CONFIG = {
 const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   const [isMobile, setIsMobile] = React.useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
 
   React.useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
       if (window.innerWidth >= 768) setIsMenuOpen(false);
     };
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const navLinks: { label: string; value: Page }[] = [
-    { label: 'Home', value: 'home' },
-    { label: 'About', value: 'about' },
-    { label: 'Services', value: 'services' },
-    { label: 'Portfolio', value: 'portfolio' },
-    { label: 'Contact', value: 'contact' },
+    { label: 'Nexus', value: 'home' },
+    { label: 'Ethos', value: 'about' },
+    { label: 'Capabilities', value: 'services' },
+    { label: 'Archive', value: 'portfolio' },
+    { label: 'Terminal', value: 'contact' },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -156,7 +164,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-[120] h-20 bg-black/80 backdrop-blur-xl border-b border-white/5 overflow-visible">
+      <nav className={`fixed top-0 left-0 w-full z-[120] h-20 transition-all duration-500 overflow-visible ${(scrolled || isMenuOpen)
+          ? 'bg-black/80 backdrop-blur-xl border-b border-white/5'
+          : 'bg-transparent border-b border-transparent'
+        }`}>
 
         {/* PHASE 1 & 2: Logo and Brand Reveal */}
         <motion.div

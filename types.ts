@@ -13,6 +13,7 @@ export interface PortfolioItem {
   image: string;
   description?: string;
   tech?: string[];
+  url?: string;
 }
 
 export interface Stat {
