@@ -105,11 +105,11 @@ const Portfolio: React.FC<PortfolioProps> = ({ compact }) => {
     const baseOpacity = isActive ? 1 : Math.max(0.2, 1 - absOffset * 0.25);
 
     // 3D positioning: cleaner transforms for crystal-clear rendering
-    const spreadX = isMobileLocal ? 40 : 160;
+    const spreadX = isMobileLocal ? 110 : 320;
     const translateX = offset * spreadX;
-    const translateY = isActive ? -20 : absOffset * 20;
-    const translateZ = isActive ? 40 : -(absOffset * 60);
-    const rotateY = offset * -3; // Minimal rotation to stay crisp
+    const translateY = isActive ? -5 : absOffset * 10;
+    const translateZ = isActive ? 0 : -(absOffset * 100);
+    const rotateY = offset * -1.5; // Almost flat for better image visibility
 
     const transform = `
       translateX(${translateX}px)

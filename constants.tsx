@@ -291,7 +291,7 @@ export const STATS: Stat[] = [
 ];
 
 export const SKILLS = [
-  'GOLANG', 'RUST', 'TYPESCRIPT', 'GEMINI 2.5', 'KUBERNETES', 'TERRAFORM', 'REACT', 'ELIXIR', 'PYTHON', 'DOCKER'
+  'GOLANG', 'RUST', 'TYPESCRIPT', 'KUBERNETES', 'TERRAFORM', 'REACT', 'ELIXIR', 'PYTHON', 'DOCKER'
 ];
 
 export const ArrowIcon = () => (

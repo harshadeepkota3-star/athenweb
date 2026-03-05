@@ -3,10 +3,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const PHRASES = [
-    { text: "ENGINEERING DIGITAL POWER", image: "/power.png" },
-    { text: "CRAFTING FUTURE EXPERIENCES", image: "/future.png" },
-    { text: "SCALING INTELLIGENT SYSTEMS", image: "/web.png" },
-    { text: "DESIGNING MARKET DOMINANCE", image: "/global.png" }
+    { text: "Build Once. Scale Forever", image: "/power.png" },
+    { text: "Concurrency Resolved. Zero Downtime. Zero Compromise", image: "/future.png" },
+    { text: "Real-Time Data. Zero Latency. Total Visibility", image: "/web.png" },
+    { text: "Infrastructure That Compounds. Never Decays", image: "/global.png" }
 ];
 
 const RotatingPhrase3D: React.FC = () => {

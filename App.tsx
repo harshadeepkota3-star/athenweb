@@ -3,16 +3,16 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
-import Services from './components/Services';
 import About from './components/About';
+import OriginSection from './components/OriginSection';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AIAssistant from './components/AIAssistant';
 
-import Process from './components/Process';
 
-export type Page = 'home' | 'about' | 'services' | 'portfolio' | 'contact';
+
+export type Page = 'home' | 'about' | 'portfolio' | 'contact';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -29,15 +29,13 @@ const App: React.FC = () => {
           <>
             <Hero onNavigate={setCurrentPage} />
             <Marquee />
-            <Process />
+            <OriginSection />
+            {/* <Process /> */}
             <Portfolio compact />
           </>
         );
       case 'about':
         return <About />;
-      case 'services':
-        return <Process />; // Maybe the services page should also show this? Or keep old Services?
-
       case 'portfolio':
         return <Portfolio />;
       case 'contact':
