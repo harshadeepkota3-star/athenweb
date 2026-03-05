@@ -30,7 +30,6 @@ const App: React.FC = () => {
             <Hero onNavigate={setCurrentPage} />
             <Marquee />
             <Process />
-            <About compact />
             <Portfolio compact />
           </>
         );

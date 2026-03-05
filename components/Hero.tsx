@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </div>
 
             <div className="mt-8 flex flex-col items-center lg:items-start relative z-30 px-6 lg:px-0">
-              <div className="max-w-md text-center lg:text-left text-[11px] md:text-[13px] text-white/40 leading-relaxed font-medium tracking-wide uppercase">
+              <div className="max-w-md text-center lg:text-left text-[11px] md:text-[13px] text-white/40 leading-relaxed font-medium tracking-wide uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>
                 Architecting high-performance digital infrastructure for the next stage of global evolution.
               </div>
             </div>
@@ -52,7 +52,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
           <div className="grid grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-8 border-t border-white/5 pt-8 lg:border-none lg:pt-0">
             {STATS.map((stat, idx) => (
-              <div key={idx} className="group border-b border-white/5 pb-3">
+              <div key={idx} className="group border-b border-white/5 pb-3 px-3 py-2 rounded-lg hover:bg-[#1e1e1e] transition-all duration-300">
                 <h3 className="text-2xl md:text-3xl font-black text-white group-hover:text-[#00ead3] transition-colors tracking-tighter">{stat.value}</h3>
                 <p className="text-[8px] text-white/20 font-black uppercase tracking-[0.3em] leading-relaxed">{stat.label}</p>
               </div>

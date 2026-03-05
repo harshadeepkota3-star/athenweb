@@ -55,8 +55,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   }, []);
 
   const navLinks: { label: string; value: Page }[] = [
-    { label: 'Nexus', value: 'home' },
-    { label: 'Ethos', value: 'about' },
+    { label: 'Origin', value: 'home' },
+    { label: 'About', value: 'about' },
     { label: 'Capabilities', value: 'services' },
     { label: 'Archive', value: 'portfolio' },
     { label: 'Terminal', value: 'contact' },
@@ -165,8 +165,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   return (
     <>
       <nav className={`fixed top-0 left-0 w-full z-[120] h-20 transition-all duration-500 overflow-visible ${(scrolled || isMenuOpen)
-          ? 'bg-black/80 backdrop-blur-xl border-b border-white/5'
-          : 'bg-transparent border-b border-transparent'
+        ? 'bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/5'
+        : 'bg-transparent border-b border-transparent'
         }`}>
 
         {/* PHASE 1 & 2: Logo and Brand Reveal */}

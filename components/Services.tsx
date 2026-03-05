@@ -10,7 +10,7 @@ const Services: React.FC<ServicesProps> = ({ showAll }) => {
   const displayServices = showAll ? [...SERVICES, ...SERVICES] : SERVICES;
 
   return (
-    <section className="services-grid-bg bg-black py-24 px-6 md:px-12">
+    <section className="services-grid-bg bg-[#111111] py-24 px-6 md:px-12">
       <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
         <div>
           <div className="flex items-center gap-3 mb-6">
@@ -32,7 +32,7 @@ const Services: React.FC<ServicesProps> = ({ showAll }) => {
         {displayServices.map((service, idx) => (
           <div
             key={idx}
-            className={`group relative p-10 h-[550px] flex flex-col justify-between overflow-hidden transition-all duration-500 ${service.highlighted ? 'bg-brand-blue' : 'bg-[#121212] hover:bg-[#1a1a1a]'
+            className={`group relative p-10 h-[550px] flex flex-col justify-between overflow-hidden transition-all duration-500 ${service.highlighted ? 'bg-brand-blue' : 'bg-[#161616] hover:bg-[#222222]'
               }`}
           >
             <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700">
@@ -44,7 +44,7 @@ const Services: React.FC<ServicesProps> = ({ showAll }) => {
               <h3 className="text-4xl font-black text-white leading-tight uppercase tracking-tighter mb-4">
                 {service.title}
               </h3>
-              <p className={`text-base ${service.highlighted ? 'text-white/80' : 'text-white/40'} leading-relaxed max-w-xs mb-8`}>
+              <p className={`text-base ${service.highlighted ? 'text-white/80' : 'text-white/40'} leading-relaxed max-w-xs mb-8`} style={{ fontFamily: "'Inter', sans-serif" }}>
                 {service.description}
               </p>
             </div>

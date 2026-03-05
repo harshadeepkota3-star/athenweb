@@ -16,6 +16,15 @@ const Portfolio: React.FC<PortfolioProps> = ({ compact }) => {
   const displayItems = compact ? PORTFOLIO.slice(0, 4) : PORTFOLIO;
   const total = displayItems.length;
 
+  const getDomain = (url: string) => {
+    try {
+      const hostname = new URL(url).hostname;
+      return hostname.replace('www.', '').toUpperCase();
+    } catch (e) {
+      return url.toUpperCase();
+    }
+  };
+
   const navigate = useCallback((direction: 'next' | 'prev') => {
     if (isAnimating) return;
     setIsAnimating(true);
@@ -91,36 +100,33 @@ const Portfolio: React.FC<PortfolioProps> = ({ compact }) => {
     const absOffset = Math.abs(offset);
     const isMobileLocal = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
 
-    // Base values
-    const baseScale = isActive ? 1 : Math.max(0.55, 1 - absOffset * 0.15);
-    const baseOpacity = isActive ? 1 : Math.max(0.15, 1 - absOffset * 0.3);
-    const baseBlur = isActive ? 0 : Math.min(absOffset * 3, 8);
+    // Base values — use clean scale steps to avoid sub-pixel blurriness
+    const baseScale = isActive ? 1 : Math.max(0.6, 1 - absOffset * 0.12);
+    const baseOpacity = isActive ? 1 : Math.max(0.2, 1 - absOffset * 0.25);
 
-    // 3D positioning: diagonal stack with perspective
-    // Cards spread out diagonally with depth
+    // 3D positioning: cleaner transforms for crystal-clear rendering
     const spreadX = isMobileLocal ? 40 : 160;
-    const translateX = offset * spreadX; // Horizontal spread
-    const translateY = isActive ? -30 : absOffset * 25; // Active card lifts up, others lower
-    const translateZ = isActive ? 80 : -(absOffset * 120); // Active card comes forward
-    const rotateY = offset * -8; // Subtle Y rotation for 3D feel
-    const rotateZ = offset * 2; // Subtle tilt
+    const translateX = offset * spreadX;
+    const translateY = isActive ? -20 : absOffset * 20;
+    const translateZ = isActive ? 40 : -(absOffset * 60);
+    const rotateY = offset * -3; // Minimal rotation to stay crisp
 
     const transform = `
       translateX(${translateX}px)
       translateY(${translateY}px)
       translateZ(${translateZ}px)
       rotateY(${rotateY}deg)
-      rotateZ(${rotateZ}deg)
       scale(${baseScale})
     `;
 
-    return {
+    const style: React.CSSProperties = {
       transform,
       opacity: baseOpacity,
-      filter: `blur(${baseBlur}px)`,
       zIndex: total - absOffset,
       '--card-transform': transform,
-    } as React.CSSProperties;
+    };
+
+    return style;
   };
 
   // displayItems already computed above
@@ -225,7 +231,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ compact }) => {
                     {/* Card content */}
                     <div className="portfolio-card-content">
                       <span className="portfolio-card-category">{item.category}</span>
-                      <h3 className="portfolio-card-title">{item.title}</h3>
+                      <h3 className="portfolio-card-title">{getDomain(item.url)}</h3>
                       {item.description && (
                         <p className="portfolio-card-description">{item.description}</p>
                       )}
@@ -298,7 +304,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ compact }) => {
                 {displayItems[activeIndex]?.category}
               </span>
               <h4 className="text-xl font-black text-white uppercase tracking-tight">
-                {displayItems[activeIndex]?.title}
+                {getDomain(displayItems[activeIndex]?.url || '')}
               </h4>
             </div>
           </div>

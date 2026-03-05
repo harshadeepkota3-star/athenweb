@@ -59,9 +59,7 @@
     height: 100%;
     border-radius: inherit;
     overflow: hidden;
-    background: rgba(18, 18, 18, 0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: #121212;
     border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -127,6 +125,7 @@
 }
 
 .portfolio-card-description {
+    font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.45);
     line-height: 1.55;

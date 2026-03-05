@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span className="text-[10px] font-bold text-[#00ead3] tracking-[0.4em]">DRIVING EVOLUTION</span>
             </div>
           </div>
-          <p className="text-white/30 text-lg max-w-sm mb-8">
+          <p className="text-white/30 text-lg max-w-sm mb-8" style={{ fontFamily: "'Inter', sans-serif" }}>
             Pioneering the next stage of digital infrastructure with intelligent design and high-performance code.
           </p>
           <div className="flex gap-4">

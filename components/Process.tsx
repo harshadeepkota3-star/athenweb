@@ -179,7 +179,7 @@ const Process: React.FC = () => {
                     <h2 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter leading-none mb-4">
                         OUR <span className="text-outline-teal">PROCESS.</span>
                     </h2>
-                    <p className="text-white/30 text-[10px] md:text-xs font-medium tracking-[0.4em] uppercase">Systematic Evolution from Concept to Deployment</p>
+                    <p className="text-white/30 text-[10px] md:text-xs font-medium tracking-[0.4em] uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>Systematic Evolution from Concept to Deployment</p>
                 </div>
 
                 {/* Cards & Logo Section */}
@@ -195,9 +195,9 @@ const Process: React.FC = () => {
                                 ref={el => cardsRef.current[idx] = el}
                                 className="
                                     glass-card group relative p-6 lg:p-8 h-[280px] lg:h-[340px] rounded-2xl border border-white/5 
-                                    bg-[#0a0a0a]/80 backdrop-blur-2xl flex flex-col overflow-hidden
-                                    shadow-[0_20px_40px_rgba(0,0,0,0.6)] transition-colors duration-500
-                                    hover:border-[#00f5d4]/20
+                                    bg-[#111111] flex flex-col overflow-hidden
+                                    shadow-[0_20px_40px_rgba(0,0,0,0.6)] transition-all duration-500
+                                    hover:bg-[#1e1e1e] hover:border-[#00f5d4]/20
                                 "
                             >
                                 {/* Inner Glow */}
@@ -215,7 +215,7 @@ const Process: React.FC = () => {
                                         {step.title}
                                     </h3>
 
-                                    <p className="text-white/40 text-xs lg:text-sm leading-relaxed font-medium group-hover:text-white/60 transition-colors duration-300 line-clamp-4">
+                                    <p className="text-white/40 text-xs lg:text-sm leading-relaxed font-medium group-hover:text-white/60 transition-colors duration-300 line-clamp-4" style={{ fontFamily: "'Inter', sans-serif" }}>
                                         {step.description}
                                     </p>
 
