@@ -79,6 +79,7 @@ const Contact: React.FC = () => {
                 <a href="https://www.instagram.com/athenwebservices?igsh=MXZiMmNqa2M1eGlvZQ==" target="_blank" rel="noopener noreferrer" className="hover:text-neon transition-colors text-xs whitespace-nowrap">Instagram</a>
                 <a href="https://www.facebook.com/profile.php?id=61576352673682" target="_blank" rel="noopener noreferrer" className="hover:text-neon transition-colors text-xs whitespace-nowrap">Facebook</a>
                 <a href="https://wa.me/917671855226" target="_blank" rel="noopener noreferrer" className="hover:text-neon transition-colors text-xs whitespace-nowrap">WhatsApp</a>
+                <a href="https://www.linkedin.com/company/athenweb/" target="_blank" rel="noopener noreferrer" className="hover:text-neon transition-colors text-xs whitespace-nowrap">LinkedIn</a>
               </div>
             </div>
           </div>
