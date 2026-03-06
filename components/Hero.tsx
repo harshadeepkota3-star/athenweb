@@ -51,6 +51,15 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-8 border-t border-white/5 pt-8 lg:border-none lg:pt-0">
+            <button
+              onClick={() => onNavigate('contact')}
+              className="bg-[#00ead3] text-black px-8 py-4 rounded-full text-sm font-black uppercase hover:bg-white transition-all flex items-center justify-center gap-3 shadow-2xl hover:scale-105 active:scale-95 group mb-8 lg:mb-12"
+            >
+              START EVOLVING
+              <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
             {STATS.map((stat, idx) => (
               <div key={idx} className="group border-b border-white/5 pb-3 px-3 py-2 rounded-lg hover:bg-[#1e1e1e] transition-all duration-300">
                 <h3 className="text-2xl md:text-3xl font-black text-white group-hover:text-[#00ead3] transition-colors tracking-tighter">{stat.value}</h3>

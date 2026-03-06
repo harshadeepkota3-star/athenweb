@@ -124,6 +124,8 @@ const OriginSection: React.FC = () => {
                 </div>
             </section>
 
+
+
             <style>{`
         .origin-text-outline, .about-text-outline {
           color: #00ead3;

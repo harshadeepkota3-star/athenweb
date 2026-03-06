@@ -49,7 +49,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <ul className="space-y-4 text-white/40 text-base font-bold uppercase">
             <li><button onClick={() => onNavigate('home')} className="hover:text-[#00ead3] transition-colors">Origin</button></li>
             <li><button onClick={() => onNavigate('about')} className="hover:text-[#00ead3] transition-colors">About</button></li>
-            <li><button onClick={() => onNavigate('portfolio')} className="hover:text-[#00ead3] transition-colors">Archive</button></li>
+            <li><button onClick={() => onNavigate('portfolio')} className="hover:text-[#00ead3] transition-colors">Our Works</button></li>
             <li><button onClick={() => onNavigate('contact')} className="hover:text-[#00ead3] transition-colors">Terminal</button></li>
           </ul>
         </div>
@@ -57,7 +57,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div>
           <h4 className="text-[#00ead3] font-black text-base uppercase tracking-widest mb-8">NODE INFO</h4>
           <ul className="space-y-4 text-white/40 text-base font-bold">
-            <li className="hover:text-white cursor-pointer transition-colors">athenwebservices@gmail.com</li>
             <li className="hover:text-white cursor-pointer transition-colors">+91 76718 55226</li>
             <li className="text-xs leading-relaxed max-w-[200px]">C9RV+7R8, 500 081, Andra Basti, Sri Rama Colony, Madhapur, Hyderabad, Telangana 500033</li>
           </ul>

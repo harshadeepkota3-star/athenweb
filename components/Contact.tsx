@@ -72,10 +72,7 @@ const Contact: React.FC = () => {
           </h2>
 
           <div className="space-y-8">
-            <div>
-              <h4 className="text-neon text-xs font-bold uppercase tracking-widest mb-2" style={{ fontFamily: "'Inter', sans-serif" }}>Email Us</h4>
-              <p className="text-white text-2xl font-bold tracking-tighter hover:text-neon transition-colors cursor-pointer underline underline-offset-8">athenwebservices@gmail.com</p>
-            </div>
+
             <div>
               <h4 className="text-neon text-xs font-bold uppercase tracking-widest mb-2" style={{ fontFamily: "'Inter', sans-serif" }}>Socials</h4>
               <div className="flex flex-wrap gap-6 text-white font-bold uppercase text-sm">

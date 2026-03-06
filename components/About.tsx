@@ -1,6 +1,6 @@
-
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { Page } from '../App';
 
 /* ─────────────────────────────────────────────
    Animated Section Wrapper
@@ -94,12 +94,13 @@ const BUILD_CAPABILITIES = [
 
 interface AboutProps {
   compact?: boolean;
+  onNavigate?: (page: Page) => void;
 }
 
 /* ─────────────────────────────────────────────
    ABOUT PAGE COMPONENT
    ───────────────────────────────────────────── */
-const About: React.FC<AboutProps> = ({ compact }) => {
+const About: React.FC<AboutProps> = ({ compact, onNavigate }) => {
   return (
     <section className="relative bg-[#050505] text-white overflow-hidden">
 
@@ -243,104 +244,56 @@ const About: React.FC<AboutProps> = ({ compact }) => {
       </div>
 
 
-      {/* ═══════════════════════════════════════════
-          SECTION 3.5 — OUR ERP SOFTWARE SOLUTIONS
-          ═══════════════════════════════════════════ */}
-      <div className="relative py-12 md:py-20 px-6 md:px-12 lg:px-20 bg-[#0a0a0a] border-t border-white/5">
-        <div className="relative z-10 max-w-[1400px] mx-auto text-center">
-          <FadeInSection>
-            <div className="mb-14">
-              <span className="text-sm font-black text-[#00ead3] font-mono tracking-widest opacity-80">
-                / SEC_02_EXT
-              </span>
-              <h2 className="text-3xl md:text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.85] mt-6 mb-4">
-                OUR ERP SOFTWARE <span className="about-text-outline italic">SOLUTIONS.</span>
-              </h2>
-              <div className="w-24 h-1 bg-[#00ead3] mx-auto mb-12"></div>
-            </div>
+      {/* ───── OUR TEAM ───── */}
+      <section className="relative py-12 md:py-24 px-6 md:px-12 lg:px-20 bg-[#0a0a0a] border-t border-white/5">
+        <div className="relative z-10 max-w-[1400px] mx-auto">
+          <FadeInSection className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-4">
+              OUR <span className="about-text-outline italic">TEAM.</span>
+            </h2>
+            <p className="text-white/40 text-sm md:text-base font-bold uppercase tracking-[0.25em]">
+              Meet the talented people behind AthenWeb's success
+            </p>
           </FadeInSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-            {/* Retail Softwares */}
-            <FadeInSection delay={0.1}>
-              <div className="group relative p-8 md:p-10 rounded-2xl border border-white/5 bg-[#111111] hover:border-[#00ead3]/20 hover:bg-[#161616] transition-all duration-500 h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="w-2 h-2 bg-[#00ead3] rotate-45"></span>
-                  <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">Retail Softwares</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20 text-left">
+            {[
+              {
+                name: 'Jaswanth G',
+                role: 'Co-founder / CEO',
+                quote: 'Leading vision and strategy of AthenWeb'
+              },
+              {
+                name: 'Rakesh',
+                role: 'Co-founder / CTO',
+                quote: 'Driving technical innovation and excellence'
+              },
+              {
+                name: 'Manikanta K',
+                role: 'Co-founder / COO',
+                quote: 'Ensuring operational excellence and business growth'
+              }
+            ].map((member, i) => (
+              <FadeInSection key={i} delay={i * 0.1}>
+                <div className="group space-y-4">
+                  <div className="flex items-center gap-3">
+                    <span className="w-6 h-[1px] bg-[#00ead3] opacity-50 group-hover:w-10 transition-all duration-500"></span>
+                    <p className="text-[#00ead3] text-[10px] font-black uppercase tracking-[0.3em]">
+                      {member.role}
+                    </p>
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter leading-none group-hover:text-[#00ead3] transition-colors duration-300">
+                    {member.name}
+                  </h3>
+                  <p className="text-white/30 text-sm font-medium leading-relaxed max-w-[280px]" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    {member.quote}
+                  </p>
                 </div>
-                <ul className="space-y-3">
-                  {[
-                    "Pharmacy Shop Software", "Kirana/Grocery Shop Software", "POS Software",
-                    "Jewellery Software", "Restaurant Software", "Garment Software",
-                    "Retail Software", "Salon Software"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-white/40 text-sm md:text-base font-medium group-hover:text-white/60 transition-colors">
-                      <span className="text-[#00ead3] mt-1.5 opacity-50">•</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeInSection>
-
-            {/* Distribution Softwares */}
-            <FadeInSection delay={0.2}>
-              <div className="group relative p-8 md:p-10 rounded-2xl border border-white/5 bg-[#111111] hover:border-[#00ead3]/20 hover:bg-[#161616] transition-all duration-500 h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="w-2 h-2 bg-[#00ead3] rotate-45"></span>
-                  <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">Distribution Softwares</h3>
-                </div>
-                <ul className="space-y-3">
-                  {[
-                    "Pharma Distribution Software", "FMCG Distribution Software", "Mandi (AADHAT) Software",
-                    "Warehouse Management Software", "Wholesale Distribution Software", "Automobile Software",
-                    "Supply Chain Management", "DMSXpert/Multi-location Software"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-white/40 text-sm md:text-base font-medium group-hover:text-white/60 transition-colors">
-                      <span className="text-[#00ead3] mt-1.5 opacity-50">•</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeInSection>
-
-            {/* Manufacturing Softwares */}
-            <FadeInSection delay={0.3}>
-              <div className="group relative p-8 md:p-10 rounded-2xl border border-white/5 bg-[#111111] hover:border-[#00ead3]/20 hover:bg-[#161616] transition-all duration-500 h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="w-2 h-2 bg-[#00ead3] rotate-45"></span>
-                  <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">Manufacturing Softwares</h3>
-                </div>
-                <ul className="space-y-3">
-                  {[
-                    "ERP Software Solution", "Pharmaceutical Manufacturing Software", "Ayurvedic & Homeopathic Software",
-                    "Automobile Industry Software", "Textile Software", "Assembling Industry Software",
-                    "Process Manufacturing Software", "Food & Beverage Industry Software"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-white/40 text-sm md:text-base font-medium group-hover:text-white/60 transition-colors">
-                      <span className="text-[#00ead3] mt-1.5 opacity-50">•</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeInSection>
+              </FadeInSection>
+            ))}
           </div>
-
-          {/* New CTA Section */}
-          <FadeInSection delay={0.4}>
-            <div className="mt-20 flex flex-col sm:flex-row items-center justify-center gap-6">
-              <button className="w-full sm:w-auto px-10 py-5 bg-[#00ead3] text-black font-black uppercase text-lg rounded-full shadow-[0_10px_30px_rgba(0,234,211,0.2)] hover:bg-white hover:shadow-none transition-all duration-300">
-                Request Free Demo
-              </button>
-              <button className="w-full sm:w-auto px-10 py-5 bg-transparent border-2 border-white/10 text-white font-black uppercase text-lg rounded-full hover:bg-white hover:text-black hover:border-white transition-all duration-300">
-                Download Now
-              </button>
-            </div>
-          </FadeInSection>
         </div>
-      </div>
+      </section>
 
 
       {/* ═══════════════════════════════════════════
@@ -438,7 +391,10 @@ const About: React.FC<AboutProps> = ({ compact }) => {
 
             <FadeInSection delay={0.2}>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="w-full sm:w-auto px-10 py-5 bg-[#00ead3] text-black font-black uppercase text-lg rounded-full flex items-center justify-center gap-3 hover:bg-white transition-colors group">
+                <button
+                  onClick={() => onNavigate?.('contact')}
+                  className="w-full sm:w-auto px-10 py-5 bg-[#00ead3] text-black font-black uppercase text-lg rounded-full flex items-center justify-center gap-3 hover:bg-white transition-colors group"
+                >
                   START EVOLVING
                   <span className="group-hover:translate-x-2 transition-transform">
                     <svg

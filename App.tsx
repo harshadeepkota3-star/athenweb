@@ -35,7 +35,7 @@ const App: React.FC = () => {
           </>
         );
       case 'about':
-        return <About />;
+        return <About onNavigate={setCurrentPage} />;
       case 'portfolio':
         return <Portfolio />;
       case 'contact':
