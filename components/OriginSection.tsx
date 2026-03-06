@@ -39,7 +39,7 @@ const OriginSection: React.FC = () => {
                             <span className="text-[10px] font-black uppercase tracking-[0.5em] text-[#00ead3]">OUR ORIGIN</span>
                             <span className="w-1.5 h-1.5 bg-[#00ead3] rotate-45"></span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-8 whitespace-nowrap">
+                        <h2 className="text-4xl md:text-5xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-8">
                             BORN FROM <span className="origin-text-outline italic">FRUSTRATION.</span>
                         </h2>
                     </FadeInSection>
@@ -75,7 +75,7 @@ const OriginSection: React.FC = () => {
                 <div className="max-w-4xl mx-auto relative z-10 text-center flex flex-col items-center">
                     <FadeInSection>
                         <span className="text-sm font-black text-[#00ead3] font-mono tracking-widest opacity-80">/ REF_02</span>
-                        <h2 className="text-3xl md:text-4xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mt-4 whitespace-nowrap">
+                        <h2 className="text-3xl md:text-4xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mt-4">
                             THE PROBLEM WE <span className="origin-text-outline italic">SOLVE.</span>
                         </h2>
                         <p className="mt-6 text-white/30 text-xs font-bold uppercase tracking-[0.3em]">REACTIVE VS. FORWARD LOOKING</p>

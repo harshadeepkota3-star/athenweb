@@ -29,7 +29,8 @@
 
 @media (max-width: 480px) {
     .portfolio-carousel {
-        height: 300px;
+        height: 520px;
+        /* INCREASED TO FIT TALLER CARDS */
     }
 }
 
@@ -38,17 +39,24 @@
 
 @media (max-width: 768px) {
     .portfolio-card {
-        width: 480px;
-        height: 320px;
+        width: 380px !important;
+        height: 460px !important;
         border-radius: 12px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
     .portfolio-card {
-        width: 340px;
-        height: 240px;
-        border-radius: 10px;
+        width: 310px !important;
+        height: 440px !important;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .portfolio-card {
+        width: 270px !important;
+        height: 420px !important;
     }
 }
 
@@ -66,12 +74,20 @@
 /* --- Card Image --- */
 .portfolio-card-img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    /* ENFORCE FULL VISIBILITY */
+    height: 60%;
+    /* OCCUPY TOP PORTION */
+    object-fit: cover;
+    object-position: top;
     background: #000;
     display: block;
     transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (max-width: 480px) {
+    .portfolio-card-img {
+        height: 50%;
+        /* SPLIT EQUALLY ON MOBILE */
+    }
 }
 
 .portfolio-card:hover .portfolio-card-img {
@@ -84,11 +100,21 @@
     bottom: 0;
     left: 0;
     right: 0;
+    height: 40%;
+    /* MATCH IMAGE REDUCTION */
     padding: 20px 24px;
-    background: rgba(5, 5, 5, 0.95);
-    /* MUCH MORE SOLID FOR READABILITY */
+    background: #121212;
     border-top: 1px solid rgba(0, 234, 211, 0.1);
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 480px) {
+    .portfolio-card-content {
+        height: 50%;
+        padding: 16px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -119,23 +145,37 @@
     transition: opacity 0.6s ease;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .portfolio-card-title {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .portfolio-card-title {
+        font-size: 1.1rem;
+        word-break: break-all;
     }
 }
 
 .portfolio-card-description {
     font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    /* SLIGHTLY SMALLER FOR FIT */
-    color: rgba(255, 255, 255, 0.7);
-    /* BRIGHTER FOR READABILITY */
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
     line-height: 1.5;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (max-width: 520px) {
+    .portfolio-card-description {
+        font-size: 0.72rem;
+        line-height: 1.4;
+        margin-top: 4px;
+        color: rgba(255, 255, 255, 0.5);
+    }
 }
 
 /* Show description only on active card */
@@ -263,7 +303,8 @@
 
 @media (max-width: 640px) {
     .carousel-wrapper {
-        gap: 8px;
+        gap: 0;
+        padding: 0;
     }
 }
 
@@ -279,8 +320,22 @@
 
     .carousel-nav-left,
     .carousel-nav-right {
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 50;
+        background: rgba(10, 10, 10, 0.9) !important;
+        border-color: rgba(0, 234, 211, 0.3);
+    }
+
+    .carousel-nav-left {
+        left: -15px;
+    }
+
+    .carousel-nav-right {
+        right: -15px;
     }
 }
 
@@ -340,17 +395,26 @@
 
 /* --- Tech Tags --- */
 .tech-tag {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    padding: 5px 12px;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
     border-radius: 6px;
     background: rgba(0, 234, 211, 0.08);
     color: rgba(0, 234, 211, 0.7);
     border: 1px solid rgba(0, 234, 211, 0.1);
     display: inline-block;
     transition: all 0.4s ease;
+    white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+    .tech-tag {
+        font-size: 9px !important;
+        padding: 3px 7px !important;
+        letter-spacing: 0.05em !important;
+    }
 }
 
 .portfolio-card[data-active="true"] .tech-tag {

@@ -98,18 +98,19 @@ const Portfolio: React.FC<PortfolioProps> = ({ compact }) => {
 
     const isActive = offset === 0;
     const absOffset = Math.abs(offset);
-    const isMobileLocal = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
+    const isSmallMobile = typeof window !== 'undefined' ? window.innerWidth < 520 : false;
+    const isMidTablet = typeof window !== 'undefined' ? window.innerWidth >= 520 && window.innerWidth < 768 : false;
 
     // Base values — use clean scale steps to avoid sub-pixel blurriness
-    const baseScale = isActive ? 1 : Math.max(0.6, 1 - absOffset * 0.12);
-    const baseOpacity = isActive ? 1 : Math.max(0.2, 1 - absOffset * 0.25);
+    const baseScale = isActive ? 1 : (isSmallMobile ? 0.75 : 0.7);
+    const baseOpacity = isActive ? 1 : (isSmallMobile ? 0.35 : 0.3);
 
     // 3D positioning: cleaner transforms for crystal-clear rendering
-    const spreadX = isMobileLocal ? 110 : 320;
+    const spreadX = isSmallMobile ? 85 : (isMidTablet ? 180 : 320);
     const translateX = offset * spreadX;
-    const translateY = isActive ? -5 : absOffset * 10;
-    const translateZ = isActive ? 0 : -(absOffset * 100);
-    const rotateY = offset * -1.5; // Almost flat for better image visibility
+    const translateY = isActive ? -8 : (isSmallMobile ? absOffset * 10 : absOffset * 12);
+    const translateZ = isActive ? 0 : -(absOffset * 60);
+    const rotateY = isSmallMobile ? offset * -1.5 : (isMidTablet ? offset * -1.8 : offset * -1.5);
 
     const transform = `
       translateX(${translateX}px)
@@ -149,7 +150,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ compact }) => {
             PORTFOLIO
           </span>
         </div>
-        <h2 className="text-2xl md:text-5xl lg:text-7xl font-black text-white leading-none uppercase tracking-tighter whitespace-nowrap">
+        <h2 className="text-3xl md:text-5xl lg:text-7xl font-black text-white leading-none uppercase tracking-tighter sm:whitespace-nowrap">
           OUR WORK <span className="text-[#00ead3] italic">SPEAKS FOR ITSELF.</span>
         </h2>
       </div>
@@ -239,10 +240,10 @@ const Portfolio: React.FC<PortfolioProps> = ({ compact }) => {
                       {/* Tech tags */}
                       {item.tech && item.tech.length > 0 && (
                         <div
-                          className="flex flex-wrap gap-2 mt-3"
+                          className="flex flex-nowrap sm:flex-wrap gap-1 md:gap-2 mt-3"
                           style={{
                             opacity: isActive ? 1 : 0,
-                            maxHeight: isActive ? '40px' : '0',
+                            maxHeight: isActive ? '60px' : '0',
                             overflow: 'hidden',
                             transition: 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)',
                           }}

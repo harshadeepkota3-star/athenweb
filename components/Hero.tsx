@@ -50,10 +50,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-8 border-t border-white/5 pt-8 lg:border-none lg:pt-0">
+          <div className="grid grid-cols-3 lg:grid-cols-1 gap-2 md:gap-6 lg:gap-8 border-t border-white/5 pt-8 lg:border-none lg:pt-0">
             <button
               onClick={() => onNavigate('contact')}
-              className="bg-[#00ead3] text-black px-8 py-4 rounded-full text-sm font-black uppercase hover:bg-white transition-all flex items-center justify-center gap-3 shadow-2xl hover:scale-105 active:scale-95 group mb-8 lg:mb-12"
+              className="hidden lg:flex bg-[#00ead3] text-black px-8 py-4 rounded-full text-sm font-black uppercase hover:bg-white transition-all items-center justify-center gap-3 shadow-2xl hover:scale-105 active:scale-95 group mb-8 lg:mb-12"
             >
               START EVOLVING
               <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

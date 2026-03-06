@@ -132,7 +132,7 @@ const About: React.FC<AboutProps> = ({ compact, onNavigate }) => {
           </FadeInSection>
 
           <FadeInSection delay={0.1}>
-            <h1 className="text-4xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-8 whitespace-nowrap">
+            <h1 className="text-4xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-8">
               HOW WE <span className="about-text-outline italic">THINK.</span>
             </h1>
           </FadeInSection>
@@ -167,7 +167,7 @@ const About: React.FC<AboutProps> = ({ compact, onNavigate }) => {
               </span>
               <span className="w-1.5 h-1.5 bg-[#00ead3] rotate-45"></span>
             </div>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.85] mb-12 whitespace-nowrap">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.85] mb-12">
               FIVE PRINCIPLES OF <span className="about-text-outline italic">DESIGN.</span>
             </h2>
           </FadeInSection>
@@ -210,7 +210,7 @@ const About: React.FC<AboutProps> = ({ compact, onNavigate }) => {
               <span className="text-sm font-black text-[#00ead3] font-mono tracking-widest opacity-80">
                 / SEC_02
               </span>
-              <h2 className="text-3xl md:text-5xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mt-6 mb-6 whitespace-nowrap">
+              <h2 className="text-3xl md:text-5xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mt-6 mb-6">
                 WHAT WE <span className="about-text-outline italic">BUILD.</span>
               </h2>
             </div>
@@ -305,7 +305,7 @@ const About: React.FC<AboutProps> = ({ compact, onNavigate }) => {
             <span className="text-sm font-black text-[#00ead3] font-mono tracking-widest opacity-80">
               / SEC_03
             </span>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.85] mt-6 mb-8 whitespace-nowrap">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.85] mt-6 mb-8">
               THE ATHENWEB <span className="about-text-outline italic">STANDARD.</span>
             </h2>
           </FadeInSection>
