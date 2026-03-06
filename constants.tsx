@@ -285,9 +285,9 @@ export const PORTFOLIO: PortfolioItem[] = [
 ];
 
 export const STATS: Stat[] = [
-  { label: 'GLOBAL CLIENTS', value: '450 +' },
-  { label: 'SYSTEMS EVOLVED', value: '800 +' },
-  { label: 'UPTIME RECORD', value: '99.9 %' },
+  { label: 'HAPPY CLIENTS', value: '50 +' },
+  { label: 'SYSTEMS EVOLVED', value: '60 +' },
+  { label: 'INDUSTRIES SERVED', value: '10 +' },
 ];
 
 export const SKILLS = [

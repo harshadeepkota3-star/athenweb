@@ -41,10 +41,10 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
-      <div className="w-full max-w-xl bg-[#0a0a0a] border border-[#00ead3]/20 rounded-3xl overflow-hidden flex flex-col shadow-[0_0_100px_rgba(0,234,211,0.1)] animate-in fade-in zoom-in duration-300">
-        
-        <div className="p-6 bg-[#111] border-b border-white/5 flex justify-between items-center">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-black/90 backdrop-blur-md">
+      <div className="w-full max-w-3xl h-[85vh] md:h-[80vh] bg-[#0a0a0a] border border-[#00ead3]/20 rounded-3xl overflow-hidden flex flex-col shadow-[0_0_100px_rgba(0,234,211,0.1)] animate-in fade-in zoom-in duration-300">
+
+        <div className="p-6 bg-[#111] border-b border-white/5 flex justify-between items-center flex-shrink-0">
           <div className="flex items-center gap-3">
             <AthenWebLogo className="w-10 h-10" />
             <div>
@@ -62,14 +62,13 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ onClose }) => {
           </button>
         </div>
 
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-8 space-y-6 min-h-[450px]">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 md:p-8 space-y-6 scroll-smooth custom-scrollbar">
           {messages.map((msg, i) => (
             <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-              <div className={`max-w-[80%] p-5 rounded-2xl text-sm leading-relaxed border ${
-                msg.role === 'user' 
-                ? 'bg-[#00ead3] text-black font-black border-[#00ead3] rounded-tr-none' 
+              <div className={`max-w-[80%] p-5 rounded-2xl text-sm leading-relaxed border ${msg.role === 'user'
+                ? 'bg-[#00ead3] text-black font-black border-[#00ead3] rounded-tr-none'
                 : 'bg-white/5 text-white border-white/10 rounded-tl-none'
-              }`}>
+                }`}>
                 {msg.text}
               </div>
             </div>
@@ -87,15 +86,15 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ onClose }) => {
           )}
         </div>
 
-        <form onSubmit={handleSubmit} className="p-8 border-t border-white/5">
+        <form onSubmit={handleSubmit} className="p-6 md:p-8 border-t border-white/5 flex-shrink-0">
           <div className="relative flex items-center">
-            <input 
+            <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Query node..."
               className="w-full bg-[#111] border border-white/10 rounded-full px-8 py-4 text-white text-sm focus:outline-none focus:border-[#00ead3] transition-all placeholder:text-white/10"
             />
-            <button 
+            <button
               type="submit"
               disabled={loading}
               className="absolute right-3 bg-[#00ead3] text-black p-3 rounded-full hover:scale-110 active:scale-95 transition-transform disabled:opacity-50 shadow-[0_0_20px_rgba(0,234,211,0.3)]"

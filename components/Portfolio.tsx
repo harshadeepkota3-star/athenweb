@@ -133,7 +133,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ compact }) => {
 
   return (
     <section
-      className={`relative py-20 px-6 md:px-12 overflow-hidden ${compact ? 'bg-[#050505]' : 'bg-[#050505]'
+      className={`relative py-12 md:py-16 px-6 md:px-12 overflow-hidden ${compact ? 'bg-[#050505]' : 'bg-[#050505]'
         }`}
       id="portfolio-section"
     >
@@ -142,15 +142,15 @@ const Portfolio: React.FC<PortfolioProps> = ({ compact }) => {
       <div className="portfolio-bg-glow" style={{ bottom: '10%', right: '-10%' }} />
 
       {/* Section Header */}
-      <div className="relative z-10 mb-16 md:mb-20">
+      <div className="relative z-10 mb-10 md:mb-12">
         <div className="flex items-center gap-3 mb-6">
           <span className="w-3 h-3 bg-[#00ead3] rotate-45" />
           <span className="text-sm font-black uppercase text-white/30 tracking-[0.3em]">
             PORTFOLIO
           </span>
         </div>
-        <h2 className="text-4xl md:text-7xl lg:text-8xl font-black text-white leading-none uppercase tracking-tighter">
-          OUR WORK <span className="text-outline">SPEAKS FOR ITSELF.</span>
+        <h2 className="text-2xl md:text-5xl lg:text-7xl font-black text-white leading-none uppercase tracking-tighter whitespace-nowrap">
+          OUR WORK <span className="text-[#00ead3] italic">SPEAKS FOR ITSELF.</span>
         </h2>
       </div>
 

@@ -27,7 +27,7 @@ const OriginSection: React.FC = () => {
     return (
         <div className="bg-[#050505] text-white">
             {/* ───── THE ORIGIN ───── */}
-            <section className="relative py-16 md:py-24 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-white/5">
+            <section className="relative py-8 md:py-16 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-white/5">
                 <div className="absolute inset-0 pointer-events-none opacity-20">
                     <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_30%,rgba(0,234,211,0.1)_0%,transparent_70%)]" />
                 </div>
@@ -39,7 +39,7 @@ const OriginSection: React.FC = () => {
                             <span className="text-[10px] font-black uppercase tracking-[0.5em] text-[#00ead3]">OUR ORIGIN</span>
                             <span className="w-1.5 h-1.5 bg-[#00ead3] rotate-45"></span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-12 whitespace-nowrap">
+                        <h2 className="text-4xl md:text-5xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-8 whitespace-nowrap">
                             BORN FROM <span className="origin-text-outline italic">FRUSTRATION.</span>
                         </h2>
                     </FadeInSection>
@@ -71,17 +71,17 @@ const OriginSection: React.FC = () => {
             </section>
 
             {/* ───── THE PROBLEM WE SOLVE ───── */}
-            <section className="relative py-16 md:py-24 px-6 md:px-12 lg:px-20 bg-[#0a0a0a]">
+            <section className="relative py-8 md:py-16 px-6 md:px-12 lg:px-20 bg-[#0a0a0a]">
                 <div className="max-w-4xl mx-auto relative z-10 text-center flex flex-col items-center">
                     <FadeInSection>
                         <span className="text-sm font-black text-[#00ead3] font-mono tracking-widest opacity-80">/ REF_02</span>
-                        <h2 className="text-3xl md:text-4xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mt-6 whitespace-nowrap">
+                        <h2 className="text-3xl md:text-4xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mt-4 whitespace-nowrap">
                             THE PROBLEM WE <span className="origin-text-outline italic">SOLVE.</span>
                         </h2>
-                        <p className="mt-8 text-white/30 text-xs font-bold uppercase tracking-[0.3em]">REACTIVE VS. FORWARD LOOKING</p>
+                        <p className="mt-6 text-white/30 text-xs font-bold uppercase tracking-[0.3em]">REACTIVE VS. FORWARD LOOKING</p>
                     </FadeInSection>
 
-                    <div className="space-y-10 mt-12">
+                    <div className="space-y-10 mt-8">
                         <FadeInSection>
                             <p className="text-white/40 text-base md:text-lg leading-[1.8]" style={{ fontFamily: "'Inter', sans-serif" }}>
                                 Most software development is reactive. The system strains. Engineers patch, then patch the patch. The codebase becomes a record of every crisis ever survived. Eventually, the weight of it all slows everything down.
@@ -106,7 +106,7 @@ const OriginSection: React.FC = () => {
             </section>
 
             {/* ───── THE NAME ───── */}
-            <section className="relative py-16 md:py-24 px-6 md:px-12 lg:px-20 bg-[#050505]">
+            <section className="relative py-8 md:py-16 px-6 md:px-12 lg:px-20 bg-[#050505]">
                 <div className="max-w-4xl mx-auto text-center">
                     <FadeInSection>
                         <div className="flex flex-col items-center justify-center">
@@ -116,7 +116,7 @@ const OriginSection: React.FC = () => {
                             <p className="max-w-2xl text-white/40 text-base md:text-xl leading-[1.8] font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>
                                 Goddess of wisdom and strategic warfare did not win by brute force. She won by thinking further ahead, by understanding the full shape of a problem before committing to a solution.
                             </p>
-                            <p className="mt-12 text-[#00ead3] text-xl md:text-2xl font-black uppercase tracking-widest px-8 py-4 border border-[#00ead3]/20 rounded-full">
+                            <p className="mt-8 text-[#00ead3] text-xl md:text-2xl font-black uppercase tracking-widest px-8 py-4 border border-[#00ead3]/20 rounded-full">
                                 THE INTELLIGENCE LAYER BENEATH YOUR BUSINESS.
                             </p>
                         </div>

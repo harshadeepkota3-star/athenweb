@@ -114,12 +114,12 @@ const About: React.FC<AboutProps> = ({ compact }) => {
       {/* ═══════════════════════════════════════════
           SECTION 1 — ABOUT HERO
           ═══════════════════════════════════════════ */}
-      <div className="relative min-h-[50vh] flex flex-col items-center justify-center px-6 md:px-12 lg:px-20 py-16 text-center">
+      <div className="relative min-h-[40vh] flex flex-col items-center justify-center px-6 md:px-12 lg:px-20 py-12 text-center">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(0,234,211,0.06)_0%,transparent_60%)]"></div>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto w-full">
+        <div className="relative z-10 max-w-[1400px] mx-auto w-full">
           <FadeInSection>
             <div className="flex items-center justify-center gap-3 mb-8">
               <span className="w-1.5 h-1.5 bg-[#00ead3] rotate-45"></span>
@@ -131,7 +131,7 @@ const About: React.FC<AboutProps> = ({ compact }) => {
           </FadeInSection>
 
           <FadeInSection delay={0.1}>
-            <h1 className="text-4xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-10 whitespace-nowrap">
+            <h1 className="text-4xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-8 whitespace-nowrap">
               HOW WE <span className="about-text-outline italic">THINK.</span>
             </h1>
           </FadeInSection>
@@ -156,8 +156,8 @@ const About: React.FC<AboutProps> = ({ compact }) => {
       {/* ═══════════════════════════════════════════
           SECTION 2 — HOW WE THINK (5 PILLARS)
           ═══════════════════════════════════════════ */}
-      <div className="relative py-16 md:py-24 px-6 md:px-12 lg:px-20 bg-[#0a0a0a]">
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
+      <div className="relative py-12 md:py-16 px-6 md:px-12 lg:px-20 bg-[#0a0a0a]">
+        <div className="relative z-10 max-w-[1400px] mx-auto text-center">
           <FadeInSection>
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="w-1.5 h-1.5 bg-[#00ead3] rotate-45"></span>
@@ -166,7 +166,7 @@ const About: React.FC<AboutProps> = ({ compact }) => {
               </span>
               <span className="w-1.5 h-1.5 bg-[#00ead3] rotate-45"></span>
             </div>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.85] mb-16 whitespace-nowrap">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.85] mb-12 whitespace-nowrap">
               FIVE PRINCIPLES OF <span className="about-text-outline italic">DESIGN.</span>
             </h2>
           </FadeInSection>
@@ -174,8 +174,8 @@ const About: React.FC<AboutProps> = ({ compact }) => {
           <div className="space-y-0 text-left">
             {THINKING_PILLARS.map((pillar, idx) => (
               <FadeInSection key={idx} delay={idx * 0.08}>
-                <div className="group py-10 md:py-14 border-b border-white/5 last:border-b-0">
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div className="group py-8 md:py-10 border-b border-white/5 last:border-b-0">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
                     <div className="lg:col-span-4">
                       <div className="flex items-center gap-4 mb-4">
                         <span className="text-sm font-black text-[#00ead3] font-mono tracking-widest opacity-80">
@@ -202,10 +202,10 @@ const About: React.FC<AboutProps> = ({ compact }) => {
       {/* ═══════════════════════════════════════════
           SECTION 3 — WHAT WE BUILD
           ═══════════════════════════════════════════ */}
-      <div className="relative py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-[#050505]">
+      <div className="relative py-12 md:py-20 px-6 md:px-12 lg:px-20 bg-[#050505]">
         <div className="relative z-10 max-w-[1400px] mx-auto text-center">
           <FadeInSection>
-            <div className="mb-16">
+            <div className="mb-12">
               <span className="text-sm font-black text-[#00ead3] font-mono tracking-widest opacity-80">
                 / SEC_02
               </span>
@@ -244,15 +244,115 @@ const About: React.FC<AboutProps> = ({ compact }) => {
 
 
       {/* ═══════════════════════════════════════════
+          SECTION 3.5 — OUR ERP SOFTWARE SOLUTIONS
+          ═══════════════════════════════════════════ */}
+      <div className="relative py-12 md:py-20 px-6 md:px-12 lg:px-20 bg-[#0a0a0a] border-t border-white/5">
+        <div className="relative z-10 max-w-[1400px] mx-auto text-center">
+          <FadeInSection>
+            <div className="mb-14">
+              <span className="text-sm font-black text-[#00ead3] font-mono tracking-widest opacity-80">
+                / SEC_02_EXT
+              </span>
+              <h2 className="text-3xl md:text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.85] mt-6 mb-4">
+                OUR ERP SOFTWARE <span className="about-text-outline italic">SOLUTIONS.</span>
+              </h2>
+              <div className="w-24 h-1 bg-[#00ead3] mx-auto mb-12"></div>
+            </div>
+          </FadeInSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            {/* Retail Softwares */}
+            <FadeInSection delay={0.1}>
+              <div className="group relative p-8 md:p-10 rounded-2xl border border-white/5 bg-[#111111] hover:border-[#00ead3]/20 hover:bg-[#161616] transition-all duration-500 h-full flex flex-col">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="w-2 h-2 bg-[#00ead3] rotate-45"></span>
+                  <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">Retail Softwares</h3>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    "Pharmacy Shop Software", "Kirana/Grocery Shop Software", "POS Software",
+                    "Jewellery Software", "Restaurant Software", "Garment Software",
+                    "Retail Software", "Salon Software"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-white/40 text-sm md:text-base font-medium group-hover:text-white/60 transition-colors">
+                      <span className="text-[#00ead3] mt-1.5 opacity-50">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeInSection>
+
+            {/* Distribution Softwares */}
+            <FadeInSection delay={0.2}>
+              <div className="group relative p-8 md:p-10 rounded-2xl border border-white/5 bg-[#111111] hover:border-[#00ead3]/20 hover:bg-[#161616] transition-all duration-500 h-full flex flex-col">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="w-2 h-2 bg-[#00ead3] rotate-45"></span>
+                  <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">Distribution Softwares</h3>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    "Pharma Distribution Software", "FMCG Distribution Software", "Mandi (AADHAT) Software",
+                    "Warehouse Management Software", "Wholesale Distribution Software", "Automobile Software",
+                    "Supply Chain Management", "DMSXpert/Multi-location Software"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-white/40 text-sm md:text-base font-medium group-hover:text-white/60 transition-colors">
+                      <span className="text-[#00ead3] mt-1.5 opacity-50">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeInSection>
+
+            {/* Manufacturing Softwares */}
+            <FadeInSection delay={0.3}>
+              <div className="group relative p-8 md:p-10 rounded-2xl border border-white/5 bg-[#111111] hover:border-[#00ead3]/20 hover:bg-[#161616] transition-all duration-500 h-full flex flex-col">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="w-2 h-2 bg-[#00ead3] rotate-45"></span>
+                  <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">Manufacturing Softwares</h3>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    "ERP Software Solution", "Pharmaceutical Manufacturing Software", "Ayurvedic & Homeopathic Software",
+                    "Automobile Industry Software", "Textile Software", "Assembling Industry Software",
+                    "Process Manufacturing Software", "Food & Beverage Industry Software"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-white/40 text-sm md:text-base font-medium group-hover:text-white/60 transition-colors">
+                      <span className="text-[#00ead3] mt-1.5 opacity-50">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeInSection>
+          </div>
+
+          {/* New CTA Section */}
+          <FadeInSection delay={0.4}>
+            <div className="mt-20 flex flex-col sm:flex-row items-center justify-center gap-6">
+              <button className="w-full sm:w-auto px-10 py-5 bg-[#00ead3] text-black font-black uppercase text-lg rounded-full shadow-[0_10px_30px_rgba(0,234,211,0.2)] hover:bg-white hover:shadow-none transition-all duration-300">
+                Request Free Demo
+              </button>
+              <button className="w-full sm:w-auto px-10 py-5 bg-transparent border-2 border-white/10 text-white font-black uppercase text-lg rounded-full hover:bg-white hover:text-black hover:border-white transition-all duration-300">
+                Download Now
+              </button>
+            </div>
+          </FadeInSection>
+        </div>
+      </div>
+
+
+      {/* ═══════════════════════════════════════════
           SECTION 4 — THE ATHENWEB STANDARD
           ═══════════════════════════════════════════ */}
-      <div className="relative py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-[#0a0a0a]">
-        <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+      <div className="relative py-12 md:py-20 px-6 md:px-12 lg:px-20 bg-[#0a0a0a]">
+        <div className="relative z-10 max-w-[1400px] mx-auto text-center flex flex-col items-center">
           <FadeInSection>
             <span className="text-sm font-black text-[#00ead3] font-mono tracking-widest opacity-80">
               / SEC_03
             </span>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.85] mt-6 mb-12 whitespace-nowrap">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.85] mt-6 mb-8 whitespace-nowrap">
               THE ATHENWEB <span className="about-text-outline italic">STANDARD.</span>
             </h2>
           </FadeInSection>
@@ -309,7 +409,7 @@ const About: React.FC<AboutProps> = ({ compact }) => {
           SECTION 5 — CLOSING CTA
           ═══════════════════════════════════════════ */}
       {!compact && (
-        <div className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-[#050505]">
+        <div className="relative py-16 md:py-24 px-6 md:px-12 lg:px-20 bg-[#050505]">
           <div className="relative z-10 max-w-4xl mx-auto text-center">
             <FadeInSection>
               <div className="flex items-center justify-center gap-3 mb-6">

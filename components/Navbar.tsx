@@ -57,7 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   const navLinks: { label: string; value: Page }[] = [
     { label: 'Origin', value: 'home' },
     { label: 'About', value: 'about' },
-    { label: 'Archive', value: 'portfolio' },
+    { label: 'Our Works', value: 'portfolio' },
     { label: 'Terminal', value: 'contact' },
   ];
 
