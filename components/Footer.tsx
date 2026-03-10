@@ -69,8 +69,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           &copy; 2026 ATHENWEB SYSTEMS. ALL NODES SECURED.
         </span>
         <div className="flex gap-8 text-xs font-bold text-white/20 uppercase tracking-[0.4em]">
-          <a href="#" className="hover:text-[#00ead3]">PROTOCOLS</a>
-          <a href="#" className="hover:text-[#00ead3]">NETWORK STATUS</a>
+          <button onClick={() => onNavigate('portfolio')} className="hover:text-[#00ead3] transition-colors">PROTOCOLS</button>
+          <button onClick={() => onNavigate('contact')} className="hover:text-[#00ead3] transition-colors">NETWORK STATUS</button>
         </div>
       </div>
     </footer>
