@@ -108,6 +108,16 @@ const Contact: React.FC = () => {
               />
             </div>
             <div className="space-y-2">
+              <label className="text-[10px] font-semibold text-white/30 uppercase tracking-[0.3em]" style={{ fontFamily: "'Inter', sans-serif" }}>Phone Number</label>
+              <input
+                type="tel"
+                name="phone"
+                required
+                placeholder="+91 XXXXX XXXXX"
+                className="w-full bg-transparent border-b-2 border-white/10 py-3 text-white font-black text-lg focus:outline-none focus:border-neon transition-colors placeholder:text-white/5"
+              />
+            </div>
+            <div className="space-y-2">
               <label className="text-[10px] font-semibold text-white/30 uppercase tracking-[0.3em]" style={{ fontFamily: "'Inter', sans-serif" }}>Tell us about your project</label>
               <textarea
                 name="message"

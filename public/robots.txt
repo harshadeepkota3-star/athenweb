@@ -1,0 +1,13 @@
+# AthenWeb - Progressive SEO Robots Configuration
+# https://athenweb.com
+
+User-agent: *
+Allow: /
+Disallow: /tmp/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://athenweb.com/sitemap.xml
+
+# Politeness settings
+Crawl-delay: 1
